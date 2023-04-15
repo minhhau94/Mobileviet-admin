@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý sản phẩm</title>
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <!-- bootstrap css -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <!-- style css -->
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-top">
+        <div class="logo">Phone<span>viet.vn</span></div>
+        <div class="title">
+          <i class="fa-solid fa-square-phone"></i> Quản lý sản phẩm
+        </div>
+        <div class="search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Bạn muốn tìm gì..." />
+          <button>Tìm kiếm</button>
+        </div>
+      </div>     
+
+      <div class="container-bot">
+        <div class="mx-3 create-group">
+          <h3 class="p-3">DANH SÁCH SẢN PHẨM</h3>
+          <button class="createbtn text-light d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#createProductModal">
+            <i class="fa-solid fa-square-plus fs-3"></i>Thêm sản phẩm mới
+          </button>                
+        </div>
+        <table class="table text-center bg-light">
+          <tr>
+            <th>Mã SP</th>
+            <th>Hình Ảnh</th>                      
+            <th>Sản Phẩm</th>                                            
+            <th>Hãng</th>
+            <th>Giá</th>
+            <th>Giảm giá</th>                     
+            <th>Chi tiết sản phẩm</th>                      
+            <th>Sửa/Xóa</th>
+          </tr>
+        </thead>
+        <tbody class="" id="tbodyProduct">
+          <!-- chèn sp -->
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- modal create product -->
+    <div class="create-product-modal">
+      <div
+        class="modal fade modal-dialog-scrollable"
+        id="createProductModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header p-2">
+              <div class="logo p-0 ms-4">
+                Phone<span>viet.vn</span
+                ><span class="modal-title">Thêm sản phẩm</span>
+              </div>
+              <button
+                type="button"
+                class="btn-close me-2"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                onclick="deleteForm()"
+              ></button>
+            </div>
+            <div id="modal-body" class="modal-body">
+              <div class="modal-main px-4">
+                <form id="formQLSP">
+                  <div class="row pb-4">
+                    <div class="col-4 form-group" id="id" style="display: none;">
+                      <label for="">Mã Sản Phẩm: </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="txtId"
+                        disabled
+                      />
+                      <span id="spanId" class="text-danger"></span>
+                    </div>
+                    <div class="col-4 form-group">
+                      <label for="">Hãng: </label>
+                      <select class="form-select" id="txtType">
+                        <option value="">Chọn hãng</option>
+                        <option value="Samsung">Samsung</option>
+                        <option value="iPhone">iPhone</option>
+                        <option value="Oppo">Oppo</option>
+                        <option value="Oppo">Xiaomi</option>
+                      </select>                      
+                      <span id="spanType" class="text-danger"></span>
+                    </div>
+                    <div class="col-4 form-group">
+                      <label for="">Tên Sản Phẩm: </label>
+                      <input type="text" class="form-control" id="txtName" />
+                      <span id="spanName" class="text-danger"></span>
+                    </div>
+                  </div>
+                  <div class="row pb-4">
+                    <div class="col form-group">
+                      <label for="">Hình Ảnh Sản Phẩm: </label>
+                      <input type="text" class="form-control" id="txtImg" />
+                      <span id="spanImg" class="text-danger"></span>
+                    </div>
+                  </div>
+                  <div class="row pb-4">
+                    <div class="col-6 form-group">
+                      <label for="">Giá: </label>
+                      <input type="text" class="form-control" id="txtPrice" />
+                      <span id="spanPrice" class="text-danger"></span>
+                    </div>
+                    <div class="col-6 form-group">
+                      <label for="">Sale off (%): </label>
+                      <input type="text" class="form-control" id="txtSale" />
+                      <span id="spanSale" class="text-danger"></span>
+                    </div>
+                  </div>
+                  <div class="row pb-4">
+                    <div class="col-6 form-group">
+                      <label for="">Màn hình: </label>
+                      <input type="text" class="form-control" id="txtScreen" />
+                      <span id="spanScreen" class="text-danger"></span>
+                    </div>
+                    <div class="col-6 form-group">
+                      <label for="">Pin, Sạc: </label>
+                      <input type="text" class="form-control" id="txtBattery" />
+                      <span id="spanBattery" class="text-danger"></span>
+                    </div>
+                  </div>
+                  <div class="row pb-4">
+                    <div class="col-6 form-group">
+                      <label for="">Camera Sau: </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="txtBackCamera"
+                      />
+                      <span id="spanBackCamera" class="text-danger"></span>
+                    </div>
+                    <div class="col-6 form-group">
+                      <label for="">Camera Trước: </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="txtFrontCamera"
+                      />
+                      <span id="spanFrontCamera" class="text-danger"></span>
+                    </div>
+                  </div>
+                  <div class="row pb-4">
+                    <div class="col-6 form-group">
+                      <label for="">Ram, Rom: </label>
+                      <input type="text" class="form-control" id="txtMemory" />
+                      <span id="spanMemory" class="text-danger"></span>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      class="btn btn-secondary"
+                      id="btnReset"
+                      type="reset"
+                    >
+                      RESET
+                    </button>
+                    <button
+                      class="btn btn-success"
+                      id="btnUpdate"
+                      style="display: none"
+                      type="button"
+                      onclick="updateProduct()"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      LƯU THAY ĐỔI
+                    </button>
+                    <button
+                      class="btn btn-primary btnCreate"
+                      id="btnCreate"
+                      type="button"
+                      onclick="createProduct()"
+                    >
+                      THÊM SẢN PHẨM
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- bootstrap js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- axios -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"
+      integrity="sha512-0qU9M9jfqPw6FKkPafM3gy2CBAvUWnYVOfNPDYKVuRTel1PrciTj+a9P3loJB+j0QmN2Y0JYQmkBBS8W+mbezg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script src="model/product.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>

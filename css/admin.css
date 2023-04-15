@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+:root {
+  --white: #fff;
+  --light: #eeeded;
+  --green: #198754;
+  --lightgreen: #38b97d;
+  --darkgreen: #0a4e2e;
+  --lightgray: #E8E8E8;
+}
+body {
+  background-color: var(--green);
+  font-family: system-ui;
+  /* overflow: hidden; */
+}
+
+.container {
+  max-width: 90%;
+  margin: 50px auto 0;
+  padding: 20px;
+  border: 1px solid var(--white);
+  border-radius: 30px;
+}
+
+.container-top {
+  background-color: var(--white);
+  border-radius: 30px 30px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.container-top .title {
+  text-align: center;
+  text-decoration: none;
+  color: var(--green);
+  font-weight: 700;
+  margin-right: 20px;
+  font-size: 30px;
+}
+.logo {
+  font-size: 40px;
+  display: inline-block;
+  color: var(--darkgreen);
+  font-weight: 700;
+  text-decoration: none;
+}
+.logo span {
+  color: #000;
+  font-size: 20px;
+}
+.logo .modal-title {
+  font-family: system-ui;
+  font-size: 20px;
+  color: #000;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  border-left: 2px solid hsla(0, 0%, 0%, 0.4);
+  font-weight: bold;
+}
+.container-top .search {
+  width: max-content;
+  height: 40px;
+  border: 1px solid var(--light);
+  padding-left: 15px;
+  color: var(--green);
+  border-radius: 20px;
+}
+.container-top .search input {
+  border: none;
+  padding: 0 10px;
+  outline: none;
+}
+.container-top .search button {
+  border: none;
+  background-color: var(--green);
+  color: var(--white);
+  width: 80px;
+  height: 100%;
+  border-radius: 20px;
+}
+.container-bot .create-group {
+  display: flex;
+  justify-content: space-between;
+}
+.container-bot .createbtn {
+  background-color: var(--green);
+  border: 1px solid transparent;
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-weight: 700;
+  margin: 15px;
+}
+.container-bot .createbtn i {
+  padding-right: 10px;
+}
+.container-bot {
+  background-color: var(--light);
+  border-radius: 0 0 30px 30px;
+  padding: 20px;
+}
+
+.price {
+  letter-spacing: 2px;
+  font-size: smaller;
+  opacity: 0.7;
+  text-decoration: line-through;
+}
+.salePrice{
+  color: var(--green);
+  font-size: 20px;
+}
+
+/* end center */
+
+.listCart img {
+  width: 90px;
+}
+
+/* quản lý sản phẩm */
+.align-middle img {
+  width: 80px;
+}
+.btnCreate{
+  background-color: var(--green);
+  border: 1px solid transparent;
+}
+.btnCreate:hover{
+  background-color: var(--darkgreen);
+  border: 1px solid transparent;
+}
+.align-middle ul{
+  margin: 0;
+}
